@@ -1,5 +1,28 @@
 # README
 
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false|
+|email|string|null:false|
+|encrypted_password||null:false|
+|user_id|integer|null:false, foreign_key:true|
+### Association
+- belong_to :
+
+
+## groups_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
