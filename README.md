@@ -26,7 +26,7 @@
 |------|----|-------|
 |group_name|string|null: false|
 |member|string||
-|group_id||integer|null:false, foreign_key: true|
+|group_id|integer|null:false, foreign_key: true|
 ### Association
 - has_many :groups_users
 - has_many :users, through: :groups_users
@@ -38,7 +38,7 @@
 |body|text|null: false|
 |image|text||
 |group_id|integer|null: false, foreign_key: true|
-|user_id|integer|nu;;: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belong_to :user
 - belong_to :group
