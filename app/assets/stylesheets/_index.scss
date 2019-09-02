@@ -1,0 +1,67 @@
+*{
+  box-sizing: border-box;
+}
+$font-color: #ffffff;
+
+.sidebar{
+  width: 300px;
+  height: 100vh;
+  float: left;
+  &-user{
+    height: 100px;
+    background-color: #253141;
+    padding: 0 20px;
+    align-items: center;
+    display: flex;
+      &__box{
+      font-size: 16px;
+      color: $font-color;
+      font-weight: bold;
+    }
+    }
+  &-rooms{
+    height: calc( 100vh - 100px );
+    background-color: #2f3e51;
+    padding: 20px 20px 0;
+  }
+}
+
+.user-box{
+  font-size: 16px;
+  color: $font-color;
+  line-height: 100px;
+}
+
+.room-info{
+  height: 45px;
+  color: $font-color;
+  &__name{
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  &__message{
+    font-size: 11px;
+  }
+}
+
+.contents{
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: left;
+    &-room{
+    height: 100px;
+    display: flex;
+    padding: 0 40px;
+    border-bottom: solid 1px #eeeeee;
+    }
+    &-chat{
+      height: calc(100vh - 190px);
+      padding: 46px 40px;
+    }
+    &-message{
+      height: 90px;
+      padding: 20px 40px;
+      background-color: #ddd
+    }
+}
+
