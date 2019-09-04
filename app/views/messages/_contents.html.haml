@@ -1,13 +1,21 @@
 .contents-room
-  .contents-room__box
-    %h2.contents-room__box__name
-      room1
-    %ul.contents-room__box__member
-      member: やまだたろう
-  = link_to "", class: "contents-room__edit-btn" do
+  .room-index
+    %h2.room-index__name room1
+    %ul.room-index__member member: やまだたろう
+  = link_to "", class: "room-index__edit-btn" do
     Edit
 
-.contents-chat
-  .chat
 
-.contents-message
+.contents-messages
+  .message
+    .message-index
+      %p.message-index__user やまだたろう
+      %p.message-index__date 2019/09/04 17:00
+    %p.message-text テスト
+  .message
+    .message-index
+      %p.message-index__user さとうたろう
+      %p.message-index__date 2019/09/04 17:30
+    %p.message-text  実験中
+
+.contents-form
