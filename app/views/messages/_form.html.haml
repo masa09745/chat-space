@@ -1,5 +1,4 @@
-=form_tag('/nessages', method: :post) do
-  %new_message{:name => "image", :placeholder => "Image Url", :type => "text"}/
-  %input{:type => "submit", :value => "SENT"}/
-
-.form-send
+=form_tag("", class: "new__message", id: "new_message") do
+  .input-area
+    %input.input-area__text{type: "text", placeholder: "type a message"}
+  %input.send-btn{type: "submit", name: "commit", value: "send"}

@@ -3,6 +3,7 @@
 }
 $font-color: #ffffff;
 
+@import "./infomation";
 @import "./sidebar.scss";
 @import "./contents.scss";
-@import "./infomation";
+@import "./form.scss";
