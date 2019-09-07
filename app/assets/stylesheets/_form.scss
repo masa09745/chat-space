@@ -1,3 +1,5 @@
+$contenst-color: #38aef0;
+
 .contents-form form{
   display: flex;
   .input-area{
@@ -8,6 +10,7 @@
         width: 100%;
         padding: 0 40px 0 10px;
         border-style: none;
+        color: #434a54;
       }
   }
   .send-btn{
@@ -15,7 +18,7 @@
     width: 100px;
     padding: 0 30px;
     margin-left: 15px;
-    background-color: #38aef0;
+    background-color: $contenst-color;
     color: white;
     cursor: pointer;
   }
