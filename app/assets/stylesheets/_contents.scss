@@ -1,0 +1,73 @@
+$contents-back: #fafafa;
+$contents-font: #434a54;
+$contents-info: #999999;
+$contenst-color: #38aef0;
+
+.contents{
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: left;
+  background-color: $contents-back;
+    a{
+      color: $contenst-color;
+    }
+    &-room{
+    height: 100px;
+    display: flex;
+    padding: 0 40px;
+    border-bottom: solid 1px #eeeeee;
+    }
+    &-messages{
+      height: calc(100vh - 190px);
+      padding: 46px 40px;
+    }
+    &-form{
+      height: 90px;
+      padding: 20px 40px;
+      background-color: #dddddd
+    }
+}
+.room-index{
+  margin-top:35px;
+    h2{
+      font-size: 20px;
+      color: #333333;
+      margin-bottom: 15px;
+    }
+    ul{
+      font-size: 12px;
+      color: $contents-info;
+      display: flex;
+    }
+  &__edit-btn{
+    height: 40px;
+    line-height: 40px;
+    margin-top: 28px;
+    padding: 0 20px;
+    border: solid 1px $contenst-color;
+    position: absolute;
+    right: 40px;
+    text-decoration: none;
+  }
+}
+.message{
+  padding-bottom: 40px;
+  &-index{
+    display: flex;
+    margin-bottom: 10px;
+    &__user{
+      font-size: 16px;
+      color: $contents-font;
+      font-weight: bold;
+    }
+    &__date{
+      font-size: 12px;
+      color: $contents-info;
+      margin-left: 10px;
+    }
+  }
+  &-text{
+    font-size: 14px;
+    color:$contents-font;
+  }
+}

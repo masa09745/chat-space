@@ -1,0 +1,49 @@
+$sidebar-font: #ffffff;
+
+.sidebar{
+  width: 300px;
+  height: 100vh;
+  float: left;
+  color: $sidebar-font;
+  &-user{
+    height: 100px;
+    background-color: #253141;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+  }
+  &-rooms{
+    height: calc( 100vh - 100px );
+    background-color: #2f3e51;
+    padding: 20px 20px 0;
+  }
+  a{
+    color: white;
+  }
+}
+.user-box{
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+    &__menu{
+      display: flex;
+      li{
+        margin-left: 0.3rem;
+      }
+    }
+}
+
+
+.room-info{
+  height: 45px;
+  margin-bottom: 40px;
+  &__name{
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  &__message{
+    font-size: 11px;
+  }
+}
