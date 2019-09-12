@@ -14,8 +14,7 @@
 
 .sidebar-rooms
   .room-info
-    %p.room-info__name room1
-    %p.room-info__message まだメッセージはありません
-  .room-info
-    %p.room-info__name room2
-    %p.room-info__message 画像が投稿されています
+    - current_user.groups.each do |group|
+      = link_to '#' do
+        %p.room-info__name= group.name
+        %p.room-info__message メッセージはまだありません。
