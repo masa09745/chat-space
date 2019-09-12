@@ -12,9 +12,9 @@
 
 
 
-.sidebar-rooms
-  .room-info
-    - current_user.groups.each do |group|
-      = link_to '#' do
-        %p.room-info__name= group.name
-        %p.room-info__message メッセージはまだありません。
+.rooms
+  - current_user.groups.each do |group|
+    = link_to '#' do
+      .room
+        %p.room__name= group.name
+        %p.room__message メッセージはまだありません。

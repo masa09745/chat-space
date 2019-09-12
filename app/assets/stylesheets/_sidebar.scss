@@ -12,11 +12,6 @@ $sidebar-font: #ffffff;
     display: flex;
     align-items: center;
   }
-  &-rooms{
-    height: calc( 100vh - 100px );
-    background-color: #2f3e51;
-    padding: 20px 20px 0;
-  }
   a{
     color: white;
     text-decoration: none;
@@ -35,9 +30,14 @@ $sidebar-font: #ffffff;
       }
     }
 }
+.rooms{
+  height: calc( 100vh - 100px );
+  background-color: #2f3e51;
+  padding: 20px 20px 0;
+  }
 
 
-.room-info{
+.room{
   height: 45px;
   margin-bottom: 40px;
   &__name{
