@@ -1,8 +1,0 @@
-=form_tag("", class: "new__message", id: "new_message") do
-  .input-area
-    %input.input-area__text{type: "text", placeholder: "type a message"}
-    %label.input-area__image
-      %i.fa.fa-image
-      %input#message_image.input-area__image__file{name: "message[image]", type: "file"}
-
-  %input.send-btn{type: "submit", name: "commit", value: "send"}

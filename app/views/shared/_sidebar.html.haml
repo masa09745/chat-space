@@ -1,0 +1,21 @@
+.sidebar
+  .sidebar-user
+    .user-box
+      %p.user-box__name
+        = current_user.name
+      %ul.user-box__menu
+        %li.user-box__menu__new
+          = link_to new_group_path do
+            %i.fa.fa-edit
+        %li.user-box__menu__edit
+          = link_to edit_user_path(current_user) do
+            %i.fa.fa-cog
+
+  .rooms
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        .room
+          .room__name
+            = group.name
+          .room__message
+            = group.show_last_message
