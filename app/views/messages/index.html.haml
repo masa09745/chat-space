@@ -3,8 +3,12 @@
 .contents
   .contents-room
     .room-index
-      %h2.room-index__name room1
-      %ul.room-index__member member: やまだたろう
+      %h2.room-index__name
+        = @group.name
+      %ul.room-index__member
+        Members :
+        - @group.users.each do |user|
+          %li.room-index__member__name=user.name
     = link_to edit_group_path(@group), class: "room-index__edit-btn" do
       Edit
 
