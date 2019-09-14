@@ -34,11 +34,14 @@ $contenst-color: #38aef0;
       color: #333333;
       margin-bottom: 15px;
     }
-    ul{
-      font-size: 12px;
-      color: $contents-info;
-      display: flex;
+  &__member{
+    font-size: 12px;
+    color: $contents-info;
+    display: flex;
+    li{
+      margin-right: 10px;
     }
+  }
   &__edit-btn{
     height: 40px;
     line-height: 40px;
