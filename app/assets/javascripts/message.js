@@ -19,7 +19,6 @@ $(function(){
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
-    console.log(this)
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -32,8 +31,14 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
+      console.log(data)
       $('.contents-messages').append(html)
       $('.input-area').val('')
+      $('.send-btn').prop('disabled', false);
+    })
+    .fail(function(){
+      alert('error')
+      $('.send-btn').prop('disabled', false);
     })
   })
 });
