@@ -23,6 +23,7 @@ $(function(){
     var formData = new FormData(this);
     console.log(this)
     var url = $(this).attr('action')
+    $('.contents-messages').animate({ scrollTop: $('.contents-messages')[0].scrollHeight});
     $.ajax({
       url: url,
       type: "POST",
@@ -36,13 +37,6 @@ $(function(){
       $('.send-btn').prop('disabled', false);
       $('.contents-messages').append(html)
       $('.input-area__text').val('')
-      function scrollBottom(){
-        var target = $('.message').last();
-        var position = target.offset().top + $('.contents-messages').scrollTop();
-        $('.contents-messages').animate({
-          scrollTop: position
-        }, 300, 'swing');
-      }
     })
     .fail(function(){
       alert('error')
