@@ -16,11 +16,5 @@
     =render @messages
 
   .contents-form
-    = form_for [@group, @message] do |f|
-      .input-area
-        = f.text_field :body, class: 'input-area__text', placeholder: "type a message"
-        = f.label :image, class: 'input-area__image' do
-          = fa_icon 'picture-o', class: 'icon'
-          = f.file_field :image, class: 'input-area__image__file'
-      = f.submit 'Send', class: 'send-btn'
+    =render "messages/form"
 
