@@ -76,6 +76,11 @@ li {
       width: 70%;
     }
   }
+  .clearfix ::after{
+    content: "";
+    clear: both;
+    display: block;
+  }
 }
 
 .chat-group-user {
