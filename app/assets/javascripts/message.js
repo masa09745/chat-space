@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     var text = message.body ? `${message.body}` :'';
     var img = message.image ? `<img src= ${message.image}>` : "";
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id= '${message.id}'>
                   <div class="message-index">
                     <div class="message-index__user">
                       ${message.user_name}
@@ -20,6 +20,34 @@ $(function(){
                 </div>`
     return html;
   }
+
+
+
+  var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var href = 'api/messages#index {:format=>"json"}'
+      last_message_id = $('.message:last').data('message-id');
+      console.log(last_message_id);
+      $('.contents-messages').animate({scrollTop: $('.contents-messages')[0].scrollHeight}, 'fast');
+      $.ajax({
+        url: href,
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML += buildHTML(message);
+          $('.contents-messages').append(insertHTML);
+        });
+      })
+      .fail(function() {
+        alert('自動更新できませんでした');
+      });
+    };
+  };
+
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -48,4 +76,5 @@ $(function(){
       $('.input-area__image__file').val('')
     })
   })
+  setInterval(reloadMessages, 5000);
 });
