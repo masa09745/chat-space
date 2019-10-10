@@ -28,6 +28,15 @@ $(document).on('turbolinks:load', function(){
     member_list.append(html);
     }
 
+  function removeUser(user) {
+    var html = `
+                 <div class="chat-group-user clearfix">
+                  <p class="chat-group-user__name">${ user.userName }</p>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.userId}" data-user-name="${user.userName}">追加</a>
+                </div>`;
+      search_list.append(html);
+     }
+
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
 
@@ -65,8 +74,7 @@ $(document).on('turbolinks:load', function(){
   $('#chat-group-users').on('click','.user-search-remove',function(){
     event.stopPropagation();
     var remove_user = $(this).data();
-    appendbuildHTML(user);
-    $(this).parent().remove();
+    removeUser(remove_user);
   });
   return false;
 });
