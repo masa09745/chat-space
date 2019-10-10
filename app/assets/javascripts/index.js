@@ -75,6 +75,7 @@ $(document).on('turbolinks:load', function(){
     event.stopPropagation();
     var remove_user = $(this).data();
     removeUser(remove_user);
+    $(this).parent().remove();
   });
   return false;
 });
