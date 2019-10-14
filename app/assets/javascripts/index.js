@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function(){
 
   var search_list = $("#user-search-result");
+  var member_list = $("#chat-group-users");
 
   function appendbuildHTML(user){
     var html = `
@@ -16,8 +17,6 @@ $(document).on('turbolinks:load', function(){
     search_list.append(html);
   }
 
-  var member_list = $("#chat-group-users");
-
   function addUser(userId,userName) {
     var html = `
                 <div class='chat-group-user clearfix js-chat-member' id='${userId}'>
@@ -28,6 +27,17 @@ $(document).on('turbolinks:load', function(){
     member_list.append(html);
     }
 
+
+  function removeUser(user) {
+    var html = `
+                <div class="chat-group-user clearfix">
+                  <p class="chat-group-user__name">${ user.userName }</p>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.userId}" data-user-name="${user.userName}">追加</a>
+                 </div>`;
+    search_list.append(html);
+   }
+
+   
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
 
@@ -52,5 +62,26 @@ $(document).on('turbolinks:load', function(){
     .fail(function(){
       alert('検索に失敗しました');
     })
+    return false;
   });
+
+    $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
+      event.stopPropagation();
+      var add_user = $(this).data();
+      var count = $(".chat-group-user__btn--remove").data();
+      if (add_user.userId !== count.userId){
+        addChatUser(add_user);
+        $(this).parent().remove();
+      }else{
+        alert(add_user.userName + " は登録済みのユーザーです");
+      }
+    })
+
+    $("#chat-group-users").on("click", ".js-remove-btn", function(){
+      event.stopPropagation();
+      var remove_user = $(this).data();
+      removeUser(remove_user);
+      $(this).parent().remove();
+    });
+    return false;
 });
