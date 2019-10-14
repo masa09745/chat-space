@@ -72,17 +72,9 @@ $(document).on('turbolinks:load', function(){
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
       var add_user = $(this).data();
-      console.log(this)
-      var count = $(".js-remove-btn").data();
-      console.log(count)
-      if (add_user.userId !== count.userId){
-        addUser(add_user);
-        $(this).parent().remove();
-      }
-      else{
-        alert(add_user.userName + " は登録済みのユーザーです");
-      }
-    })
+      addUser(add_user);
+      $(this).parent().remove();
+    });
 
     $("#chat-group-users").on("click", ".js-remove-btn", function(){
       event.stopPropagation();
