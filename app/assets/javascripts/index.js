@@ -49,7 +49,7 @@ $(document).on('turbolinks:load', function(){
     $.ajax({
       type: 'GET',
       url: '/users',
-      data:  {keyword: input, users_id: users_id},
+      data:  {keyword: input},
       dataType: 'json'
     })
 
@@ -72,9 +72,13 @@ $(document).on('turbolinks:load', function(){
 
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
-      var add_user = $(this).data();
-      addUser(add_user);
-      $(this).parent().remove();
+      var count = $(".chat-group-user__btn--remove").data();
+      if (add_user.userId !== count.userId){
+        addChatUser(add_user);
+        $(this).parent().remove();
+      }else{
+        alert(add_user.userName + " は登録済みのユーザーです");
+      }
     });
 
     $("#chat-group-users").on("click", ".js-remove-btn", function(){
