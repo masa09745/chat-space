@@ -72,7 +72,8 @@ $(document).on('turbolinks:load', function(){
       if (add_user.userId !== count.userId){
         addUser(add_user);
         $(this).parent().remove();
-      }else{
+      }
+      else{
         alert(add_user.userName + " は登録済みのユーザーです");
       }
     })
