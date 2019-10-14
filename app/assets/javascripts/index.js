@@ -53,12 +53,4 @@ $(document).on('turbolinks:load', function(){
       alert('検索に失敗しました');
     })
   });
-
-  $('#user-search-result').on('click','.user-search-add', function(){
-    $('#chat-group-users').val();
-    var userId = $(this).data('user-id');
-    var userName = $(this).data('user-name');
-    addUser(userId,userName);
-    $(this).parent().remove();
-    });
 });
