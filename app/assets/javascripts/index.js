@@ -72,6 +72,7 @@ $(document).on('turbolinks:load', function(){
 
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
+      var add_user = $(this).data();
       var count = $(".chat-group-user__btn--remove").data();
       if (add_user.userId !== count.userId){
         addUser(add_user);
