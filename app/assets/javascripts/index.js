@@ -19,10 +19,10 @@ $(document).on('turbolinks:load', function(){
 
   function addUser(user) {
     var html = `
-      <div class='chat-group-user clearfix js-chat-member' id='${user.id}'>
-        <input name='group[user_ids][]' type='hidden' value='${user.id}'>
-        <p class='chat-group-user__name'>${ user.name }</p>
-        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${user.id}" data-user-name="${user.name}">削除</a>
+      <div class='chat-group-user clearfix js-chat-member' id='${use.userId}'>
+        <input name='group[user_ids][]' type='hidden' value='${user.userId}'>
+        <p class='chat-group-user__name'>${ user.userName }</p>
+        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${user.userId}" data-user-name="${user.userName}">削除</a>
       </div>`;
     $("#chat-group-users").append(html);
    }
@@ -72,6 +72,7 @@ $(document).on('turbolinks:load', function(){
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
       var user = $(this).data();
+      console.log(user)
       var count = $(".chat-group-user__btn--remove").data();
       if (user.id !== count.id){
         addUser(user);
@@ -84,7 +85,6 @@ $(document).on('turbolinks:load', function(){
     $("#chat-group-users").on("click", ".js-remove-btn", function(){
       event.stopPropagation();
       var remove_user = $(this).data();
-      console.log(remove_user)
       removeUser(remove_user);
       $(this).parent().remove();
     });
