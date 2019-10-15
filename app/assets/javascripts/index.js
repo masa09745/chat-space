@@ -72,9 +72,9 @@ $(document).on('turbolinks:load', function(){
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
       var user = $(this).data();
-      console.log(user)
       var count = $(".chat-group-user__btn--remove").data();
-      if (user.id !== count.id){
+      console.log(count)
+      if (user.userId !== count.id){
         addUser(user);
         $(this).parent().remove();
       }else{
