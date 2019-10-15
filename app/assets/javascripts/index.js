@@ -78,7 +78,7 @@ $(document).on('turbolinks:load', function(){
         addUser(user);
         $(this).parent().remove();
       }else{
-        alert(user.name + " は登録済みのユーザーです");
+        alert(user.userName + " は登録済みのユーザーです");
       }
     });
 
