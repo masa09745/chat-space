@@ -74,7 +74,7 @@ $(document).on('turbolinks:load', function(){
       event.stopPropagation();
       var count = $(".chat-group-user__btn--remove").data();
       if (add_user.userId !== count.userId){
-        addChatUser(add_user);
+        addUser(add_user);
         $(this).parent().remove();
       }else{
         alert(add_user.userName + " は登録済みのユーザーです");
