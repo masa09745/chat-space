@@ -74,7 +74,7 @@ $(document).on('turbolinks:load', function(){
       var user = $(this).data();
       var count = $(".chat-group-user__btn--add").data();
       console.log(count)
-      if (user.userId !== count.id){
+      if (user.userId !== count.userId){
         addUser(user);
         $(this).parent().remove();
       }else{
