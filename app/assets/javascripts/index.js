@@ -72,9 +72,7 @@ $(document).on('turbolinks:load', function(){
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
       var user = $(this).data();
-      console.log(user)
       var count = $(".chat-group-user__btn--remove").data();
-      console.log(count)
       if (user.id !== count.id){
         addUser(user);
         $(this).parent().remove();
@@ -86,6 +84,7 @@ $(document).on('turbolinks:load', function(){
     $("#chat-group-users").on("click", ".js-remove-btn", function(){
       event.stopPropagation();
       var remove_user = $(this).data();
+      console.log(remove_user)
       removeUser(remove_user);
       $(this).parent().remove();
     });
