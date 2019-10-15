@@ -17,38 +17,36 @@ $(document).on('turbolinks:load', function(){
     search_list.append(html);
   }
 
-  function addUser(user) {
+  function addUser(add_user) {
     var html = `
-      <div class='chat-group-user clearfix js-chat-member' id='${user.userId}'>
-        <input name='group[user_ids][]' type='hidden' value='${user.userId}'>
-        <p class='chat-group-user__name'>${ user.userName }</p>
-        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${user.userId}" data-user-name="${user.userName}">削除</a>
+      <div class='chat-group-user clearfix js-chat-member' id='${add_user.userId}'>
+        <input name='group[user_ids][]' type='hidden' value='${add_user.userId}'>
+        <p class='chat-group-user__name'>${ add_user.userName }</p>
+        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${add_user.userId}" data-user-name="${add_user.userName}">削除</a>
       </div>`;
     $("#chat-group-users").append(html);
    }
 
   function removeUser(user) {
     var html = `
-                <div class="chat-group-user clearfix">
-                  <p class="chat-group-user__name">${ user.userName }</p>
-                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.userId}" data-user-name="${user.userName}">追加</a>
-                 </div>`;
+      <div class="chat-group-user clearfix">
+        <p class="chat-group-user__name">${ user.userName }</p>
+        <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.userId}" data-user-name="${user.userName}">追加</a>
+      </div>`;
     search_list.append(html);
    }
-
 
   $("#user-search-field").on("keyup", function() {
     var users_id = [];
     member_list.find('.chat-group-user').each( function( index, element ) {
     users_id.push(element.id);
-    console.log(users_id)
     });
     var input = $("#user-search-field").val();
 
     $.ajax({
       type: 'GET',
       url: '/users',
-      data:  {keyword: input, users_id: users_id},
+      data:  { name: input, users_id: users_id },
       dataType: 'json'
     })
 
@@ -71,14 +69,13 @@ $(document).on('turbolinks:load', function(){
 
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
-      var user = $(this).data();
-      var count = $(".chat-group-user__btn--add").data();
-      console.log(count)
-      if (user.userId !== count.userId){
-        addUser(user);
+      var add_user = $(this).data();
+      var count = $(".chat-group-user__btn--remove").data();
+      if (add_user.userId !== count.userId){
+        addUser(add_user);
         $(this).parent().remove();
       }else{
-        alert(user.userName + " は登録済みのユーザーです");
+        alert(add_user.userName + " は登録済みのユーザーです");
       }
     });
 
@@ -89,4 +86,4 @@ $(document).on('turbolinks:load', function(){
       $(this).parent().remove();
     });
     return false;
-});
+  });
