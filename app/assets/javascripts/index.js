@@ -57,9 +57,6 @@ $(document).on('turbolinks:load', function(){
           appendbuildHTML(user);
         });
       }
-      else {
-        appendErrMsgToHTML("一致するユーザはいません");
-      }
     })
     .fail(function(){
       alert('検索に失敗しました');
