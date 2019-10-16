@@ -27,7 +27,6 @@ $(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var href = 'api/messages#index {:format=>"json"}'
       last_message_id = $('.message:last').data('message-id');
-      $('.contents-messages').animate({scrollTop: $('.contents-messages')[0].scrollHeight}, 'fast');
       $.ajax({
         url: href,
         type: 'get',
@@ -39,6 +38,7 @@ $(function(){
         messages.forEach(function(message){
           insertHTML += buildHTML(message);
           $('.contents-messages').append(insertHTML);
+          $('.contents-messages').animate({scrollTop: $('.contents-messages')[0].scrollHeight}, 'fast');
         });
       })
       .fail(function() {
