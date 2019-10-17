@@ -32,6 +32,7 @@ $(document).on('turbolinks:load', function(){
     var users_id = [];
     member_list.find('.chat-group-user').each( function( index, element ) {
     users_id.push(element.id);
+    console.log(users_id)
     });
 
     $.ajax({
