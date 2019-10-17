@@ -28,13 +28,11 @@ $(document).on('turbolinks:load', function(){
    }
 
   $("#user-search-field").on("keyup", function() {
+    var input = $("#user-search-field").val();
     var users_id = [];
     member_list.find('.chat-group-user').each( function( index, element ) {
     users_id.push(element.id);
-    console.log(users_id)
     });
-    var input = $("#user-search-field").val();
-    console.log(input)
 
     $.ajax({
       type: 'GET',
