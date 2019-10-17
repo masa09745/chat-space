@@ -83,8 +83,6 @@ $(document).on('turbolinks:load', function(){
 
     $("#chat-group-users").on("click", ".js-remove-btn", function(){
       event.stopPropagation();
-      var remove_user = $(this).data();
-      removeUser(remove_user);
       $(this).parent().remove();
     });
     return false;
