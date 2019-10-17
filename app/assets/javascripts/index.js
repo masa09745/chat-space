@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function(){
     search_list.append(html);
   }
 
-  function addUser(userName,userId)) {
+  function addUser(userName,userId) {
     var html = `
       <div class='chat-group-user clearfix js-chat-member' id='${userId}'>
         <input name='group[user_ids][]' type='hidden' value='${userId}'>
