@@ -39,6 +39,8 @@ $(document).on('turbolinks:load', function(){
   $("#user-search-field").on("keyup", function() {
     var users_id = [];
     member_list.find('.chat-group-user').each( function( index, element ) {
+      console.log(index)
+      console.log(element)
     users_id.push(element.id);
     });
     var input = $("#user-search-field").val();
