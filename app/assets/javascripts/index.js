@@ -27,23 +27,14 @@ $(document).on('turbolinks:load', function(){
     $("#chat-group-users").append(html);
    }
 
-  function removeUser(user) {
-    var html = `
-      <div class="chat-group-user clearfix">
-        <p class="chat-group-user__name">${ user.userName }</p>
-        <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.userId}" data-user-name="${user.userName}">追加</a>
-      </div>`;
-    search_list.append(html);
-   }
-
   $("#user-search-field").on("keyup", function() {
     var users_id = [];
     member_list.find('.chat-group-user').each( function( index, element ) {
-      console.log(index)
-      console.log(element)
     users_id.push(element.id);
+    console.log(users_id)
     });
     var input = $("#user-search-field").val();
+    console.log(input)
 
     $.ajax({
       type: 'GET',
