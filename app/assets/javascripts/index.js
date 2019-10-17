@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', function(){
     $.ajax({
       type: 'GET',
       url: '/users',
-      data:  { keyword: input },
+      data:  { keyword: input, users_id: users_id },
       dataType: 'json'
     })
 
