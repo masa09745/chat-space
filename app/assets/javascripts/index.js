@@ -60,12 +60,12 @@ $(document).on('turbolinks:load', function(){
 
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
-      var userId = $(".js-add-btn").attr('data-user-id');
+      var userId = $(this).data('userId');
       console.log(userId)
-      var userName = $("js-add-btn").attr('data-user-name');
+      var userName = $(this).attr('userName');
       console.log(userName)
       var count = $(".js-remove-btn").attr('data-user-id');
-      if (add_user.userId !== count.userId){
+      if (userId !== count){
         addUser(userName,userId);
         $(this).parent().remove();
       }else{
