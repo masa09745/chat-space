@@ -31,7 +31,6 @@ $(document).on('turbolinks:load', function(){
     var input = $("#user-search-field").val();
     var users_id = [];
     member_list.find('.chat-group-user').each( function( index, element ) {
-      console.log(member_list)
     users_id.push(element.id);
     });
 
@@ -61,9 +60,9 @@ $(document).on('turbolinks:load', function(){
 
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
-      var add_user = $(this).data();
+      var add_user = $(this).attr('data-user-id');
       console.log(add_user)
-      var count = $(".js-remove-btn").data();
+      var count = $(".js-remove-btn").attr(data-user-id);
       console.log(count)
       if (add_user.userId !== count.userId){
         addUser(add_user);
