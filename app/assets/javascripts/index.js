@@ -32,7 +32,6 @@ $(document).on('turbolinks:load', function(){
     var users_id = [];
     member_list.find('.chat-group-user').each( function( index, element ) {
     users_id.push(element.id);
-    console.log(users_id)
     });
 
     $.ajax({
@@ -63,6 +62,7 @@ $(document).on('turbolinks:load', function(){
       event.stopPropagation();
       var add_user = $(this).data();
       var count = $(".chat-group-user__btn--remove").data();
+      console.log(count)
       if (add_user.userId !== count.userId){
         addUser(add_user);
         $(this).parent().remove();
