@@ -12,17 +12,17 @@ $(document).on('turbolinks:load', function(){
       search_list.append(html);
   }
 
-  function appendErrMsgToHTML(user){
-    var html = `<div class='chat-group-user clearfix'>${ user }</div>`
+  function appendErrMsgToHTML(msg){
+    var html = `<div class='chat-group-user clearfix'>${ msg }</div>`
     search_list.append(html);
   }
 
-  function addUser(userName,userId) {
+  function addUser(adduser) {
     var html = `
-      <div class='chat-group-user clearfix js-chat-member' id='${userId}'>
-        <input name='group[user_ids][]' type='hidden' value='${userId}'>
-        <p class='chat-group-user__name'>${ userName }</p>
-        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${userId}" data-user-name="${userName}">削除</a>
+      <div class='chat-group-user clearfix js-chat-member' id='${adduser.userId}'>
+        <input name='group[user_ids][]' type='hidden' value='${adduser.userId}'>
+        <p class='chat-group-user__name'>${ adduser.userName }</p>
+        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${adduser.userId}" data-user-name="${adduser.userName}">削除</a>
       </div>`;
     $("#chat-group-users").append(html);
    }
@@ -37,13 +37,13 @@ $(document).on('turbolinks:load', function(){
     $.ajax({
       type: 'GET',
       url: '/users',
-      data:  { keyword: input, users_id: users_id },
+      data:  { keyword: input,users_id: users_id },
       dataType: 'json'
     })
 
     .done(function(users){
       $("#user-search-result").empty();
-      if (users.length !== 0) {
+      if (users.length !== 0 && input.length !== 0) {
         users.forEach(function(user){
           appendbuildHTML(user);
         });
@@ -55,22 +55,13 @@ $(document).on('turbolinks:load', function(){
     .fail(function(){
       alert('検索に失敗しました');
     })
-    return false;
   });
 
     $("#user-search-result").on("click",".chat-group-user__btn--add" ,function(){
       event.stopPropagation();
-      var userId = $(this).data('userId');
-      console.log(userId)
-      var userName = $(this).attr('userName');
-      console.log(userName)
-      var count = $(".js-remove-btn").attr('data-user-id');
-      if (userId !== count){
-        addUser(userName,userId);
-        $(this).parent().remove();
-      }else{
-        alert(userName + " は登録済みのユーザーです");
-      }
+      var adduser = $(this).data();
+      addUser(adduser);
+      $(this).parent().remove();
     });
 
     $("#chat-group-users").on("click", ".js-remove-btn", function(){
